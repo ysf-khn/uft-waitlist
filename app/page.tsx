@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Home() {
@@ -44,9 +45,24 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#121212] text-[#F5F5F5] relative">
+      {/* Navigation Header */}
+      <nav className="absolute top-0 left-0 right-0 z-50 p-6">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <Link href="/" className="text-2xl font-bold text-[#FFB300]">
+            Unfetter
+          </Link>
+          <Link
+            href="/blog"
+            className="text-[#F5F5F5] hover:text-[#FFB300] transition-colors font-medium"
+          >
+            Blog
+          </Link>
+        </div>
+      </nav>
+
       <div className="flex flex-col lg:flex-row min-h-screen">
         {/* Mobile: iPhone Mockup First - Much Bigger */}
-        <div className="flex-1 flex items-center justify-center p-4 lg:hidden order-1">
+        <div className="flex-1 flex items-center justify-center p-4 lg:hidden order-1 pt-20">
           <div className="w-full max-w-[300px] flex justify-center">
             <Image
               src="/unfetter.svg"
@@ -60,7 +76,7 @@ export default function Home() {
         </div>
 
         {/* Left Column: Content */}
-        <div className="flex-1 flex items-center justify-center p-6 lg:p-16 order-2 lg:order-1">
+        <div className="flex-1 flex items-center justify-center p-6 lg:p-16 order-2 lg:order-1 pt-20 lg:pt-16">
           <div className="max-w-xl w-full space-y-8 pb-16 lg:pb-8">
             {/* Headline */}
             <h1 className="text-3xl lg:text-5xl xl:text-6xl font-bold leading-tight">
@@ -100,6 +116,36 @@ export default function Home() {
                 to the first wave of warriors. Enlistment is free. Complacency
                 will cost you everything.
               </p>
+            </div>
+
+            {/* Blog Link */}
+            <div className="bg-[#1a1a1a] border border-gray-600 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-[#FFB300] mb-2">
+                Learn the Science Behind Recovery
+              </h3>
+              <p className="text-sm text-gray-300 mb-4">
+                Discover expert insights and practical strategies for overcoming
+                addiction
+              </p>
+              <Link
+                href="/blog"
+                className="inline-flex items-center text-[#FFB300] hover:text-[#FFC933] transition-colors font-medium"
+              >
+                Read Our Blog
+                <svg
+                  className="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
             </div>
 
             {/* Main Email Form */}
